@@ -17,21 +17,21 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
  
-app.get('/device', (res, req) => {
-    res.send(200)
-})
+// app.get('/device', (res, req) => {
+//     res.send(200)
+// })
 
-app.get('/device/:deviceId', (res, req) => {
-    let deviceId = req.params.productId
+// app.get('/device/:deviceId', (res, req) => {
+//     let deviceId = req.params.productId
 
-    device.findById(deviceId, (err, device) => {
-        if(err) return res.status(500).send({message: `Error al reañizar la petición ${err}`})
-        if(!device) return res.status(404).send({message: `El dispositivo no existe`})
+//     device.findById(deviceId, (err, device) => {
+//         if(err) return res.status(500).send({message: `Error al reañizar la petición ${err}`})
+//         if(!device) return res.status(404).send({message: `El dispositivo no existe`})
 
-        res.status(200).send({device})
+//         res.status(200).send({device})
 
-    })
-})
+//     })
+// })
 
 app.post('/', (req, res) =>{
     console.log('POST /');
